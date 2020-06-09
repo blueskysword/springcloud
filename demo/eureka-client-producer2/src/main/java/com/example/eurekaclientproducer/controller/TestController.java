@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * User: lr
@@ -28,6 +29,7 @@ public class TestController {
 
     @RequestMapping(value = "/demo2",method = RequestMethod.GET)
     public String test2(){
+        System.out.println("#########producer2############"+new Date());
         InstanceInfo info =  eurekaClient.getNextServerFromEureka("eureka-producer",false);
         return info.getHomePageUrl();
     }
