@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka-server1
+  security:
+      basic:
+        enable: true #开启基于HTTP basic的认证
+      user: #配置用户的账号信息
+        name: admin
+        password: 123456
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:10002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:10003/eureka/
+  server:
+      enable-self-preservation: false #禁用自我保护模式
+server:
+  port: 10001

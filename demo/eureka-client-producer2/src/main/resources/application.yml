@@ -1,8 +1,8 @@
 server:
-  port: 9002
+  port: 9001
 spring:
   application:
-    name: eureka-consumer
+    name: eureka-producer
   security:
         basic:
           enable: true #开启基于HTTP basic的认证
@@ -12,7 +12,7 @@ spring:
 eureka:
   instance:
     #注册中心地址
-    hostname: eureka-consumer
+    hostname: eureka-producer
   client:
     fetch-registry: true
     register-with-eureka: true

@@ -8,9 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>eureka-client-producer</artifactId>
+	<artifactId>eureka-client-producer1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eureka-client-producer</name>
+	<name>eureka-client-producer1</name>
 	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 

@@ -1,0 +1,34 @@
+package com.example.eurekaclientproducer.controller;
+
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+
+/**
+ * User: lr
+ * Date: 2020/6/8
+ * Description:
+ */
+@RestController
+@RequestMapping("/producer")
+public class TestController {
+
+    @Resource
+    private EurekaClient eurekaClient;
+
+    @RequestMapping(value = "/demo",method = RequestMethod.GET)
+    public String test(){
+        return "hello world!";
+    }
+
+    @RequestMapping(value = "/demo2",method = RequestMethod.GET)
+    public String test2(){
+        InstanceInfo info =  eurekaClient.getNextServerFromEureka("eureka-producer",false);
+        return info.getHomePageUrl();
+    }
+}
