@@ -25,6 +25,7 @@
         <module>eureka-client-producer1</module>
         <module>eureka-client-producer2</module>
         <module>eureka-consumer</module>
+        <module>feign-consumer</module>
     </modules>
 
     <properties>
