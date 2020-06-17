@@ -2,6 +2,7 @@ package com.example.feignconsumer.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * User: lr
@@ -11,6 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "eureka-producer")
 public interface UserFeignClient {
 
-    @GetMapping("/producer/demo2")
-    String findById();
+    @GetMapping("/producer/demo3")
+    String findById(@RequestParam(value = "id") Integer id);
 }

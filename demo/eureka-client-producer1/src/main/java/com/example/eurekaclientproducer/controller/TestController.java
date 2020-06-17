@@ -33,4 +33,11 @@ public class TestController {
         InstanceInfo info =  eurekaClient.getNextServerFromEureka("eureka-producer",false);
         return info.getHomePageUrl();
     }
+
+    @RequestMapping(value = "/demo3",method = RequestMethod.GET)
+    public String test3(Integer id){
+        System.out.println("#########producer1############"+new Date());
+        InstanceInfo info =  eurekaClient.getNextServerFromEureka("eureka-producer",false);
+        return  "producer1"+info.getHomePageUrl()+id;
+    }
 }

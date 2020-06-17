@@ -5,27 +5,32 @@ spring:
     # 指定注册到eureka server上的服务名称
     name: feign-consumer
   security:
-        basic:
-          enable: true #开启基于HTTP basic的认证
-        user: #配置用户的账号信息
-          name: admin
-          password: 123456
+    basic:
+      enable: true #开启基于HTTP basic的认证
+    user: #配置用户的账号信息
+      name: admin
+      password: 123456
 
 eureka:
   client:
     service-url:
       # 指定eureka server通信地址，注意/eureka/小尾巴不能少
-      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:10001/eureka/
+      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@peer1:10001/eureka/
   instance:
     # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
     prefer-ip-address: true
 
+#feign配置负载均衡策略 RandomRule 随机策略，RoundRobinRule 轮训策略，BestAvailableRule 最低并发策略。。。
+
+
+
+
 feign:
   client:
     config:
-      microservice-provider-user:
+      feign-consumer:
         loggerLevel: full
 
 logging:
   level:
-    com.itmuch.cloud.study.user.feign.UserFeignClient: debug
+    com.example.feignconsumer.feign.UserFeignClient: debug
